@@ -1,6 +1,6 @@
 package hello.tests
 
-import hello.getHelloString
+import getHelloString
 import org.junit.Test
 import kotlin.test.assertEquals
 
