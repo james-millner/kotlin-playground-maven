@@ -12,6 +12,7 @@
     <properties>
         <kotlin.version>1.2.10</kotlin.version>
         <junit.version>4.12</junit.version>
+        <khttp.version>-SNAPSHOT</khttp.version>
         <main.class>hello.HelloKt</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -49,7 +50,7 @@
         <dependency>
             <groupId>com.github.jkcclemens</groupId>
             <artifactId>khttp</artifactId>
-            <version>-SNAPSHOT</version>
+            <version>${khttp.version}</version>
         </dependency>
     </dependencies>
 
