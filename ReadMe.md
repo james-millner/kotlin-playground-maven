@@ -28,3 +28,8 @@ Once you compiled the sources with previous 'mvn test' command, you can run the 
 If you want to modify the main method in Hello.kt in order to use commandline arguments, you can specify them on commandline as:
 
 	mvn exec:java -Dexec.args="argument1"
+	
+Alternatively, once built you can run the example with the kotlin CLI
+    
+    kotlin -cp target/hello-world-1.0-SNAPSHOT-jar-with-dependencies.jar hello.HelloKt
+
