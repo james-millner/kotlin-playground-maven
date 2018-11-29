@@ -13,7 +13,7 @@ If you have maven on your path, simple type:
 	
 It will compile:
  * src/main/kotlin/Hello.kt into target/classes/hello/HelloKt.class
- * src/test/kotlin/HelloTest.kt into target/test-classes/hello/tests/HelloTest.class
+ * src/test/kotlin/MarvelApiTest.kt into target/test-classes/hello/tests/HelloTest.class
 
 Then run tests, and finally run your main HelloKt class.
 

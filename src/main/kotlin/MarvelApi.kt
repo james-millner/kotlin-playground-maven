@@ -16,10 +16,6 @@ fun main(args : Array<String>) {
     println(r.headers["content-type"])
     println(r.text)
     println(r.headers.size)
-
-    for (h in r.headers) {
-        println(h.key + " " + h.value)
-    }
 }
 
 fun buildHeaders() : Map<String, String> {

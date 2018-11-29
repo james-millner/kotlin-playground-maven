@@ -6,14 +6,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jetbrains.kotlin.examples</groupId>
-    <artifactId>hello-world</artifactId>
+    <artifactId>marvel-api-kotlin-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <kotlin.version>1.2.10</kotlin.version>
         <junit.version>4.12</junit.version>
         <khttp.version>-SNAPSHOT</khttp.version>
-        <main.class>hello.HelloKt</main.class>
+        <main.class>MarvelApiKt</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -109,7 +109,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>HelloKt</mainClass>
+                                    <mainClass>MarvelApiKt</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
