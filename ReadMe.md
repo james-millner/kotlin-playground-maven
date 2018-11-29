@@ -25,7 +25,7 @@ Once you compiled the sources with previous 'mvn test' command, you can run the 
 
 Alternatively, once built you can run the example with the kotlin CLI
     
-    kotlin -cp target/hello-world-1.0-SNAPSHOT-jar-with-dependencies.jar hello.HelloKt
+    kotlin -cp target/marvel-api-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar MarvelApiKt agr1 arg2 ....... 
     
 Or you can run with Java once built:
 
