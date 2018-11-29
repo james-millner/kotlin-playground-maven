@@ -1,11 +1,13 @@
 package hello.tests
 
-import getHelloString
+import md5
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class HelloTest {
     @Test fun testAssert() : Unit {
-        assertEquals("Hello, world!", getHelloString())
+        val test = "testing"
+
+        assertEquals("ae2b1fca515949e5d54fb22b8ed95575", test.md5())
     }
 }
