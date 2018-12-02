@@ -12,8 +12,8 @@ fun buildHeaders(): Map<String, String> {
 fun getURL(endpoint: String, publicKey: String, privateKey: String, instant: Instant): String {
     val baseURL = "https://gateway.marvel.com:443/v1/public"
 
-    var ts = instant.toEpochMilli();
-    var hash = ts.toString() + privateKey + publicKey
+    val ts = instant.toEpochMilli();
+    val hash = ts.toString() + privateKey + publicKey
 
     return baseURL + endpoint + "?ts=" + ts.toString() + "&apikey=" + publicKey + "&hash=" + hash.md5() + "&limit=1"
 }
