@@ -1,6 +1,10 @@
+import com.google.gson.Gson
+import khttp.get
+import model.MarvelResponse
 import java.math.BigInteger
 import java.security.MessageDigest
 import java.time.Instant
+import kotlin.test.assertNotNull
 
 fun main(args : Array<String>) {
 
@@ -9,13 +13,14 @@ fun main(args : Array<String>) {
 
     val characterFullURL = getURL("/characters", pubKey, privateKey);
 
-    println(characterFullURL)
-
-    var r = khttp.get(characterFullURL, buildHeaders())
+    var r = get(characterFullURL, buildHeaders())
     println(r.statusCode)
-    println(r.headers["content-type"])
     println(r.text)
-    println(r.headers.size)
+
+    var gson = Gson()
+    val marvelResponse = gson.fromJson(r.text, MarvelResponse.MarvelCharacterResponse::class.java)
+
+    assertNotNull(marvelResponse)
 }
 
 fun buildHeaders() : Map<String, String> {
