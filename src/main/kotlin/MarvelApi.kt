@@ -3,13 +3,14 @@ import model.MarvelResponse
 import service.buildHeaders
 import service.getURL
 import service.translateResponse
+import java.time.Instant
 
 fun main(args : Array<String>) {
 
     var pubKey = args.get(0)
     var privateKey = args.get(1)
 
-    val characterFullURL = getURL("/characters", pubKey, privateKey);
+    val characterFullURL = getURL("/characters", pubKey, privateKey, Instant.now());
 
     var r = get(characterFullURL, buildHeaders())
     println(r.statusCode)
