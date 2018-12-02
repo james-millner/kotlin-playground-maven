@@ -6,13 +6,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.jetbrains.kotlin.examples</groupId>
-    <artifactId>hello-world</artifactId>
+    <artifactId>marvel-api-kotlin-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <kotlin.version>1.0.3</kotlin.version>
+        <kotlin.version>1.3.0</kotlin.version>
+        <serialization.version>0.9.0</serialization.version>
         <junit.version>4.12</junit.version>
-        <main.class>hello.HelloKt</main.class>
+        <khttp.version>-SNAPSHOT</khttp.version>
+        <main.class>HelloKt</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -49,7 +51,13 @@
         <dependency>
             <groupId>com.github.jkcclemens</groupId>
             <artifactId>khttp</artifactId>
-            <version>-SNAPSHOT</version>
+            <version>${khttp.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.beust/klaxon -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
         </dependency>
     </dependencies>
 
@@ -95,20 +103,28 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
                 <executions>
                     <execution>
-                        <phase>test</phase>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>java</goal>
+                            <goal>single</goal>
                         </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>MarvelApiKt</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <mainClass>${main.class}</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>
