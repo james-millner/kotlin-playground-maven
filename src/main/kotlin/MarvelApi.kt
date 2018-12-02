@@ -1,9 +1,8 @@
 import com.google.gson.Gson
 import khttp.get
 import model.MarvelResponse
-import java.math.BigInteger
-import java.security.MessageDigest
-import java.time.Instant
+import service.buildHeaders
+import service.getURL
 import kotlin.test.assertNotNull
 
 fun main(args : Array<String>) {
@@ -21,23 +20,12 @@ fun main(args : Array<String>) {
     val marvelResponse = gson.fromJson(r.text, MarvelResponse.MarvelCharacterResponse::class.java)
 
     assertNotNull(marvelResponse)
-}
 
-fun buildHeaders() : Map<String, String> {
-    return mapOf("Content-Type" to "application/json")
-}
-
-fun getURL(endpoint : String, publicKey : String, privateKey : String) : String {
-    val baseURL = "https://gateway.marvel.com:443/v1/public"
-
-    var ts = Instant.now().toEpochMilli();
-    var hash = ts.toString() + privateKey + publicKey
-
-    return baseURL + endpoint + "?ts=" + ts.toString() + "&apikey=" + publicKey + "&hash=" + hash.md5() + "&limit=1"
-}
-
-fun String.md5(): String {
-    val md = MessageDigest.getInstance("MD5")
-    return BigInteger(1, md.digest(toByteArray())).toString(16).padStart(32, '0')
+    for(url in marvelResponse.data.results) {
+        println(url.name)
+        for(u in url.urls) {
+            println(u.url)
+        }
+    }
 }
 
