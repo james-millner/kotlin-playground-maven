@@ -1,9 +1,8 @@
-import com.google.gson.Gson
 import khttp.get
 import model.MarvelResponse
 import service.buildHeaders
 import service.getURL
-import kotlin.test.assertNotNull
+import service.translateResponse
 
 fun main(args : Array<String>) {
 
@@ -14,18 +13,23 @@ fun main(args : Array<String>) {
 
     var r = get(characterFullURL, buildHeaders())
     println(r.statusCode)
-    println(r.text)
 
-    var gson = Gson()
-    val marvelResponse = gson.fromJson(r.text, MarvelResponse.MarvelCharacterResponse::class.java)
+    if(r.statusCode == 200) {
 
-    assertNotNull(marvelResponse)
+        val marvelResponse = translateResponse(r.text, MarvelResponse.MarvelCharacterResponse::class.java)
 
-    for(url in marvelResponse.data.results) {
-        println(url.name)
-        for(u in url.urls) {
-            println(u.url)
+        if (marvelResponse != null) {
+            println(marvelResponse.attributionText)
+
+            for (result in marvelResponse.data.results) {
+                println(result.name)
+                for (u in result.urls) {
+                    println(u.url)
+                }
+            }
         }
+    } else {
+        println("Error: " + r.statusCode)
     }
 }
 
