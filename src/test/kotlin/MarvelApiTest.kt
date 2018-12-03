@@ -31,13 +31,4 @@ class MarvelApiTest {
         val model = translateResponse(t, MarvelResponse.MarvelCharacterResponse::class.java)
         assertNotNull(model)
     }
-
-    @Test
-    fun testTranslateResponse_Failure() {
-        val t = this.javaClass.classLoader.getResource("marvel-character-endpoint.json").readText()
-        println(t)
-
-        val model = translateResponse(t, MarvelResponse.Data::class.java)
-        println(model.toString())
-    }
 }
