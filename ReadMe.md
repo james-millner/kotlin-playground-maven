@@ -27,8 +27,3 @@ Or you can run with Java once built:
 
     java -jar target/hello-world-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar
     
-## Using commandline arguments
-
-If you want to modify the main method in Hello.kt in order to use commandline arguments, you can specify them on commandline as:
-
-	mvn exec:java -Dexec.args="argument1"
