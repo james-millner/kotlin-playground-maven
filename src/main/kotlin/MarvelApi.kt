@@ -7,10 +7,10 @@ import java.time.Instant
 
 fun main(args : Array<String>) {
 
-    val pubKey = args.get(0)
-    val privateKey = args.get(1)
+    val pubKey = args[0]
+    val privateKey = args[1]
 
-    val characterFullURL = getURL("/characters", pubKey, privateKey, Instant.now());
+    val characterFullURL = getURL("/characters", pubKey, privateKey, Instant.now())
 
     val r = get(characterFullURL, buildHeaders())
     println(r.statusCode)
