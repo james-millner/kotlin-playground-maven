@@ -21,11 +21,11 @@ Then run tests, and finally run your main HelloKt class.
 
 Once built you can run the example with the kotlin CLI
     
-    kotlin -cp target/marvel-api-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar MarvelApiKt agr1 arg2 ....... 
+    kotlin -cp target/hello-world-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar HelloKt
     
 Or you can run with Java once built:
 
-    java -jar target/marvel-api-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar agr1 arg2 ....... 
+    java -jar target/hello-world-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar
     
 ## Using commandline arguments
 
