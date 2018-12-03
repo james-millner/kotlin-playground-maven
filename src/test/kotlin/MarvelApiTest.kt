@@ -1,5 +1,5 @@
 import extentions.md5
-import model.MarvelResponse
+import model.MarvelCharacterResponse
 import org.junit.Test
 import service.getURL
 import service.translateResponse
@@ -28,7 +28,7 @@ class MarvelApiTest {
         val t = this.javaClass.classLoader.getResource("marvel-character-endpoint.json").readText()
         println(t)
 
-        val model = translateResponse(t, MarvelResponse.MarvelCharacterResponse::class.java)
+        val model = translateResponse(t, MarvelCharacterResponse::class.java)
         assertNotNull(model)
     }
 }

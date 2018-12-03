@@ -1,5 +1,5 @@
 import khttp.get
-import model.MarvelResponse
+import model.MarvelCharacterResponse
 import service.buildHeaders
 import service.getURL
 import service.translateResponse
@@ -17,8 +17,7 @@ fun main(args : Array<String>) {
 
     if(r.statusCode == 200) {
 
-        val marvelResponse = translateResponse(r.text, MarvelResponse.MarvelCharacterResponse::class.java)
-
+        val marvelResponse = translateResponse(r.text, MarvelCharacterResponse::class.java)
         println(marvelResponse.toString())
     } else {
         println("Error: " + r.statusCode)
