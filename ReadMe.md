@@ -19,10 +19,14 @@ Then run tests, and finally run your main HelloKt class.
 
 ## Only running the example
 
-Once you compiled the sources with previous 'mvn test' command, you can run the application by typing:
+Once built you can run the example with the kotlin CLI
+    
+    kotlin -cp target/marvel-api-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar MarvelApiKt agr1 arg2 ....... 
+    
+Or you can run with Java once built:
 
-	mvn exec:java
-	
+    java -jar target/marvel-api-kotlin-example-1.0-SNAPSHOT-jar-with-dependencies.jar agr1 arg2 ....... 
+    
 ## Using commandline arguments
 
 If you want to modify the main method in Hello.kt in order to use commandline arguments, you can specify them on commandline as:
